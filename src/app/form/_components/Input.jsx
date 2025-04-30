@@ -1,0 +1,13 @@
+export const Input=({label, placeholder , type})=>{
+    return( <div className="flex flex-col gap-2" >
+        <label >
+            {label}
+            <sup className="text-red-500" >*</sup></label>
+       <div className="rounded-[8px] border-[1px] border-[#CBD5E1] p-2 "> 
+        <input 
+        type={type}
+        placeholder={placeholder} className="outline-none w-full h-full" />
+        </div>
+    </div>
+    )
+}
