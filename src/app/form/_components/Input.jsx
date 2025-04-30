@@ -1,4 +1,4 @@
-export const Input = ({ label, placeholder, type, changeHandler, name }) => {
+export const Input = ({ label, placeholder, type, changeHandler, name,value }) => {
   return (
     <div className="flex flex-col gap-2">
       <label>
@@ -11,6 +11,7 @@ export const Input = ({ label, placeholder, type, changeHandler, name }) => {
           onChange={changeHandler}
           type={type}
           placeholder={placeholder}
+          value={value}
           className="outline-none w-full h-full"
         />
       </div>
