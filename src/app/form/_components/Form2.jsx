@@ -10,18 +10,28 @@ export const FormTwo = ({ nextHandler, backHandler }) => {
       <motion.div>
         <Header />
         <div className="flex flex-col gap-1 ">
-          <Input label={"Email"} placeholder={"Your email"} type="text" />
           <Input
+            name={"email"}
+            label={"Email"}
+            placeholder={"Your email"}
+            type="text"
+          />
+
+          <Input
+            name={"number"}
             label={"Phone number "}
             placeholder={"Your phone number"}
             type="number"
           />
+
           <Input
+            name={"password"}
             label={"Password "}
             placeholder={"Your password"}
             type="password"
           />
           <Input
+            name={"confrim"}
             label={"Confirm Password "}
             placeholder={"Confirm password"}
             type="password"

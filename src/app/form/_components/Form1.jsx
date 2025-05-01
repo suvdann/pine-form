@@ -6,9 +6,7 @@ import { Input } from "./Input";
 import { Button } from "./Button";
 
 // import { useState } from "react";
-export const FormOne = ({ nextHandler, changeHandler , firstName,
-  lastName,
-  userName}) => {
+export const FormOne = ({ nextHandler, changeHandler, form }) => {
   return (
     <div className=" flex flex-col gap-6 rounded-md bg-white p-8 w-[480px] h-[655px]">
       <motion.div>
@@ -20,7 +18,7 @@ export const FormOne = ({ nextHandler, changeHandler , firstName,
             placeholder={"Your first name"}
             type="text"
             changeHandler={changeHandler}
-            value={firstName}
+            value={form.firstName}
           />
           <Input
             name={"lastName"}
@@ -28,7 +26,7 @@ export const FormOne = ({ nextHandler, changeHandler , firstName,
             placeholder={"Your last name"}
             type="text"
             changeHandler={changeHandler}
-            value={lastName}
+            value={form.lastName}
           />
           <Input
             name={"userName"}
@@ -36,7 +34,7 @@ export const FormOne = ({ nextHandler, changeHandler , firstName,
             placeholder={"Your username"}
             type="text"
             changeHandler={changeHandler}
-            value={userName}
+            value={form.userName}
           />
 
           <Button

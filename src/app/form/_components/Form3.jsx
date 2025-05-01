@@ -38,3 +38,18 @@ export const FormThree = ({ nextHandler, backHandler }) => {
     </motion.div>
   );
 };
+
+// const changeHandler = (event) => {
+//   const { name, value } = event.target;
+//   if (name === "firstName") {
+//     setFirstname(value);
+//   } else if (name === "lastName") {
+//     setLastname(value);
+//   } else if (name === "userName") {
+//     setUsername(value);
+//   }
+// };
+
+// firstName={firstName}
+// lastName={lastName}
+// userName={userName}
