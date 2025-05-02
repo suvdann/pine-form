@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import { Input } from "./Input";
 import { Button } from "./Button";
 
-// import { useState } from "react";
-export const FormOne = ({ nextHandler, changeHandler, form }) => {
+
+export const FormOne = ({ nextHandler, changeHandler, errors,form }) => {
   return (
     <div className=" flex flex-col gap-6 rounded-md bg-white p-8 w-[480px] h-[655px]">
       <motion.div>
@@ -20,6 +20,7 @@ export const FormOne = ({ nextHandler, changeHandler, form }) => {
             changeHandler={changeHandler}
             value={form.firstName}
           />
+           {errors.firstName && <p className="text-red-500 text-sm">{errors.firstName}</p>}
           <Input
             name={"lastName"}
             label={"Last name"}
@@ -28,6 +29,7 @@ export const FormOne = ({ nextHandler, changeHandler, form }) => {
             changeHandler={changeHandler}
             value={form.lastName}
           />
+           {errors.lastName && <p className="text-red-500 text-sm">{errors.lastName}</p>}
           <Input
             name={"userName"}
             label={"User name"}
@@ -35,8 +37,9 @@ export const FormOne = ({ nextHandler, changeHandler, form }) => {
             type="text"
             changeHandler={changeHandler}
             value={form.userName}
+           
           />
-
+ {errors.userName && <p className="text-red-500 text-sm">{errors.userName}</p>}
           <Button
             text={"Continue "}
             type={"next"}

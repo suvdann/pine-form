@@ -4,7 +4,7 @@ import { Header } from "./header";
 import { motion } from "framer-motion";
 import { Input } from "./Input";
 import { Button } from "./Button";
-export const FormTwo = ({ nextHandler, backHandler }) => {
+export const FormTwo = ({ nextHandler, backHandler,changeHandler,errors,form}) => {
   return (
     <div className="flex flex-col gap-8 rounded-md bg-white p-8 w-[480px] h-[655px]">
       <motion.div>
@@ -15,27 +15,46 @@ export const FormTwo = ({ nextHandler, backHandler }) => {
             label={"Email"}
             placeholder={"Your email"}
             type="text"
+            value={form.email}
+            changeHandler={changeHandler}
+            
           />
+          {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+
 
           <Input
             name={"number"}
             label={"Phone number "}
             placeholder={"Your phone number"}
             type="number"
+            value={form.number}
+            changeHandler={changeHandler}
           />
+          {errors.number && <p className="text-red-500 text-sm">{errors.number}</p>}
+
 
           <Input
             name={"password"}
             label={"Password "}
             placeholder={"Your password"}
             type="password"
+            value={form.password}
+            changeHandler={changeHandler}
           />
+          {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
+
+
           <Input
-            name={"confrim"}
+            name={"confirm"}
             label={"Confirm Password "}
             placeholder={"Confirm password"}
             type="password"
+            changeHandler={changeHandler}
+            value={form.confirm}
+            
           />
+          {errors.form && <p className="text-red-500 text-sm">{errors.confirm}</p>}
+
         </div>
 
         <div className="flex gap-10 justify-center items-center">
