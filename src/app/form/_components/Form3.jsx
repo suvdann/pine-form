@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { Input } from "./Input";
 import { Button } from "./Button";
 import { useState } from "react";
+import { Image } from "lucide-react";
+
 export const FormThree = ({
   nextHandler,
   backHandler,
@@ -12,46 +14,83 @@ export const FormThree = ({
   form,
   changeHandler,
 }) => {
-  // const [selectedImage, setSelectedImage] = useState("");
+  const [files, setFiles] = useState([]);
+  const fileHandler = (e) => {
+    const files = e.target.files;
+    setFiles(files);
+  };
+
+  // const deleteHandler = () => {
+  //   setFiles((prev) => prev.filter((el) => !el.));
+  // };
 
   return (
     <motion.div>
-      <div className="flex flex-col gap-8 rounded-md bg-white p-8 w-[480px] h-[655px] justify-between">
+      <div className="flex flex-col gap-8 rounded-md bg-[white] p-8 w-[480px] h-[655px] justify-between">
         <div className="flex flex-col ">
           <Header />
 
           <div className="flex flex-col gap-8 ">
-            <Input
-              name={"birth"}
-              label={"Date of birth"}
-              placeholder={""}
-              type="date"
-              value={form.birth}
-              changeHandler={changeHandler}
-            />
-            {errors.birth && (
-              <p className="text-red-500 text-sm">{errors.birth}</p>
-            )}
-
-            <label htmlFor="input-file" className="cursor-pointer">
-              Profile Image
-            </label>
-            <div className="border-none bg-gray-100 w-[416px] h-[180px] border-solid rounded-md cursor-pointer">
+            <div>
               <Input
-                name={"image"}
+                name={"birth"}
+                label={"Date of birth"}
                 placeholder={""}
-                type="file"
-                value={form.image}
-                accept="image/*"
+                type="date"
+                value={form.birth}
                 changeHandler={changeHandler}
               />
+              {errors.birth && (
+                <p className="text-red-500 text-sm">{errors.birth}</p>
+              )}
             </div>
-            {errors.image && (
-              <p className="text-red-500 text-sm">{errors.image}</p>
-            )}
-          </div>
 
-          <div className="flex gap-8 justify-center items-center">
+            <div className="relative  border-none bg-gray-100 w-[416px] h-[180px]  rounded-md cursor-pointer">
+              {!files.length && (
+                <div className=" ">
+                  <div className="flex flex-col mt-[64px] items-center ">
+                    <div className=" flex items-center   border-none  bg-[red] rounded-full w-[30px] h-[30px]">
+                      <Image />
+                    </div>
+                    <label htmlFor="input-file" className="cursor-pointer">
+                      Add image
+                    </label>
+                  </div>
+
+                  <Input
+                    name={"image"}
+                    placeholder={""}
+                    type="file"
+                    value={form.image}
+                    accept="image/*"
+                    changeHandler={fileHandler}
+                    classname="absolute top-0 left-0  opacity-0"
+                  />
+
+                  {errors.image && (
+                    <p className="text-red-500">{errors.image}</p>
+                  )}
+                </div>
+              )}
+              {files &&
+                Array.from(files).map((file, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="flex flex-col items-center justify-center h-full w-full relative"
+                    >
+                      <button></button>
+                      <img
+                        src={URL.createObjectURL(file)}
+                        alt="Uplaoded file"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+          <div className="flex gap-8 justify-center items-center bg-[red]">
             <div className="flex flex-2/3">
               <Button
                 text={"Back"}
@@ -74,40 +113,3 @@ export const FormThree = ({
     </motion.div>
   );
 };
-
-{
-  /* <div className="border bg-grey-400  flex justify-center items-center rounded-[8px] h-[180px] w-[full]">
-            {!files.length && (
-              <div className="relative z-5">
-                <label htmlFor="input-file" className="cursor-pointer">
-                  Add image
-                </label>
-                <Input
-                  id="input-file"
-                  type="file"
-                  //   accept="image/png"
-                  display="hidden"
-                  changeHandler={fileHandler}
-                  name="image"
-                />
-                {errors.image && <p className="text-red-500">{errors.image}</p>}
-              </div>
-            )}
-            {files &&
-              Array.from(files).map((file, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center justify-center h-full w-full relative"
-                  >
-                    <Image
-                      fill
-                      objectFit="cover"
-                      src={URL.createObjectURL(file)}
-                      alt="Uplaoded file"
-                    />
-                  </div>
-                );
-              })}
-          </div> */
-}
