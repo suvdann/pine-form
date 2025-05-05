@@ -46,7 +46,7 @@ const FormPage = () => {
     const newErrors = {}; // end bvh aldaag tsugluulna
 
     if (step === 0) {
-      if (!form.firstName.trim()) newErrors.firstName = "First name оруулна уу";
+      if (!form.firstName.trim()){ newErrors.firstName = "First name оруулна уу"};
       if (!form.lastName.trim()) newErrors.lastName = "Last name оруулна уу";
       if (!form.userName.trim()) newErrors.userName = "User name оруулна уу";
     }
