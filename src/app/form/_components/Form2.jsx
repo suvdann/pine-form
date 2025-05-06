@@ -66,7 +66,7 @@ export const FormTwo = ({
           )}
         </div>
 
-        <div className="flex gap-10 justify-center items-center">
+        <div className="flex gap-10 justify-center items-center mt-[82px]">
           <div className="flex flex-2/3">
             <Button
               text={"Back"}
@@ -77,7 +77,7 @@ export const FormTwo = ({
           </div>
           <div className=" flex items-center flex-2/3 ">
             <Button
-              text={"Continue "}
+              text={"Continue 2/3"}
               type={"next"}
               bgColor={"bg-black"}
               clickHandler={nextHandler}

@@ -10,7 +10,7 @@ export const FormOne = ({ nextHandler, changeHandler, errors, form }) => {
     <div className=" flex flex-col gap-6 rounded-md bg-white p-8 w-[480px] h-[655px]">
       <motion.div>
         <Header />
-        <div className="flex flex-col gap-2  ">
+        <div className="flex flex-col gap-2   ">
           <Input
             name={"firstName"}
             label={"First Name"}
@@ -44,13 +44,13 @@ export const FormOne = ({ nextHandler, changeHandler, errors, form }) => {
           {errors.userName && (
             <p className="text-red-500 text-sm">{errors.userName}</p>
           )}
-          <div className="bg-[red] ">
+          <div className="bg-[black] w-[416px] rounded-[8px] mt-[162px] ">
             <Button
-              text={"Continue "}
+              text={"Continue 1/3"}
               type={"next"}
               bgColor={"bg-black"}
               clickHandler={nextHandler}
-              className="w-[416px]"
+              // className="w-[416px]"
             />
           </div>
         </div>

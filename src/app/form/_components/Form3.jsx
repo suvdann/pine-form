@@ -49,7 +49,7 @@ export const FormThree = ({
               {!files.length && (
                 <div className=" ">
                   <div className="flex flex-col mt-[64px] items-center ">
-                    <div className=" flex items-center   border-none  bg-[red] rounded-full w-[30px] h-[30px]">
+                    <div className=" flex items-center justify-center   border-none  bg-[white] rounded-full w-[35px] h-[35px]">
                       <Image />
                     </div>
                     <label htmlFor="input-file" className="cursor-pointer">
@@ -79,7 +79,9 @@ export const FormThree = ({
                       key={index}
                       className="flex flex-col items-center justify-center h-full w-full relative"
                     >
-                      <button></button>
+                      <button className="w-[24px] h-[24px]  border rounded-[99px] bg-[#202124] text-[white]">
+                        X
+                      </button>
                       <img
                         src={URL.createObjectURL(file)}
                         alt="Uplaoded file"
@@ -90,7 +92,7 @@ export const FormThree = ({
                 })}
             </div>
           </div>
-          <div className="flex gap-8 justify-center items-center bg-[red]">
+          <div className="flex gap-8 justify-center items-center ] mt-[102px]">
             <div className="flex flex-2/3">
               <Button
                 text={"Back"}
@@ -101,7 +103,7 @@ export const FormThree = ({
             </div>
             <div className=" flex flex-2/3 ">
               <Button
-                text={"Continue "}
+                text={"Continue 3/3"}
                 type={"next"}
                 bgColor={"bg-black"}
                 clickHandler={nextHandler}
