@@ -15,7 +15,9 @@ export const FormThree = ({
   changeHandler,
 }) => {
   const [files, setFiles] = useState([]);
+
   const fileHandler = (e) => {
+    changeHandler(e);
     const files = e.target.files;
     setFiles(files);
   };
